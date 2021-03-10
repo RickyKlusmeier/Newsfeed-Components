@@ -31,3 +31,75 @@ let menuItems = [
 
   Step 6: Use 'menuMaker' to create a menu using the 'menuItems' array, and append the returned menu to the header.
 */
+const header = document.querySelector('.header');
+
+
+function menuMaker (array) {
+  const menu = document.createElement('div');
+  const list = document.createElement('ul');  
+
+  menu.classList.add('menu');
+
+  array.forEach((item) => {
+    const items = document.createElement('li');
+    items.textContent = item;
+    list.appendChild(items)
+  });
+
+  menu.appendChild(list);
+
+  const button = document.querySelector('.menu-button');
+
+  button.addEventListener('click', event => {
+    menu.classList.toggle('menu--open')
+  });
+  
+
+  return menu;
+}
+
+const menuMade = menuMaker(menuItems);
+
+header.appendChild(menuMade);
+
+
+// let menuItems = [
+//   'Students',
+//   'Faculty',
+//   "What's New",
+//   'Tech Trends',
+//   'Music',
+//   'Log Out'
+// ];
+
+// const header = document.querySelector('.header');
+
+// function menuMaker (items){
+
+//   const menu = document.createElement('div');
+//   const unorderList = document.createElement('ul');
+  
+//   menu.classList.add('menu');
+
+//   items.forEach((item) => {
+
+//     const list = document.createElement('li');
+//     list.textContent = item;
+//     unorderList.appendChild(list);
+//   })
+//   menu.appendChild(unorderList);
+
+// //task 3
+// const menuButton = document.querySelector('.menu-button');
+
+// //task4
+// menuButton.addEventListener('click', (event) => {
+//   menu.classList.toggle('menu--open');
+// })
+
+//   return menu;
+// }
+
+// const menuTest = menuMaker(menuItems);
+
+// header.appendChild(menuTest);
